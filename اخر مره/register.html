@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1008454401836268');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1008454401836268&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سجّل الآن | Zero To Hero — Zizo-VFX</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  /* ── RESPONSIVE: موبايل ──────────────────── */
+@media(max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media(max-width: 640px) {
+  #cur, #cur2 { display: none !important; }
+  * { cursor: auto !important; }
+  
+  .reg-container { 
+    padding: 20px 12px; 
+    min-height: auto;
+    border-radius: 0;
+  }
+  
+  .form-grid { grid-template-columns: 1fr; gap: 12px; }
+  
+  .form-group { margin-bottom: 12px; }
+  .form-label { font-size: 12px; margin-bottom: 4px; }
+  .form-input { 
+    padding: 12px 10px; 
+    font-size: 14px;
+    border-radius: var(--r);
+  }
+  
+  .price-tag {
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+  
+  .current-price {
+    font-size: 22px;
+  }
+  
+  .old-price {
+    font-size: 14px;
+  }
+  
+  .btn-reg {
+    padding: 14px;
+    font-size: 14px;
+    border-radius: var(--r);
+  }
+}
+/* ── VARIABLES ───────────────────────────────── */
+:root{
+  --gold:#C8911A;--gg:#E8AB35;--gl:#F5CC70;--gd:#7A5510;
+  --bg:#05070D;--bg2:#090C15;--bg3:#0D1220;--bg4:#121829;
+  --tx:#E8ECF8;--mt:#5E6B8A;--mt2:#3D4760;
+  --br:rgba(255,255,255,.055);--brg:rgba(232,171,53,.18);
+  --grn:#10B981;--red:#EF4444;--blue:#4B7BF5;
+  --r:12px;--r2:18px;
+}
+/* ── RESET ───────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Cairo',sans-serif;overflow-x:hidden;cursor:none;min-height:100vh}
+/* ── CURSOR ──────────────────────────────────── */
+#c1{position:fixed;width:10px;height:10px;background:var(--gg);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+#c2{position:fixed;width:34px;height:34px;border:1.5px solid rgba(232,171,53,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .08s linear}
+/* ── NAV ─────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:13px 5%;background:rgba(5,7,13,.9);backdrop-filter:blur(22px);border-bottom:1px solid var(--br);transition:background .3s}
+nav.s{background:rgba(5,7,13,.98)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:6px;background:linear-gradient(135deg,var(--gl),var(--gg),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:none;text-decoration:none}
+.back-link{display:flex;align-items:center;gap:7px;color:var(--mt);font-size:12.5px;font-weight:600;text-decoration:none;cursor:none;transition:color .2s;padding:7px 16px;border:1px solid var(--br);border-radius:28px}
+.back-link:hover{border-color:var(--brg);color:var(--gg)}
+/* ── PAGE ────────────────────────────────────── */
+#hcvs{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hov{position:fixed;inset:0;z-index:1;background:radial-gradient(ellipse 100% 80% at 50% -5%,rgba(26,63,191,.14),transparent 58%),radial-gradient(ellipse 70% 50% at 90% 90%,rgba(200,145,26,.08),transparent),linear-gradient(0deg,var(--bg) 0%,transparent 30%);pointer-events:none}
+.page-wrap{position:relative;z-index:2;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:96px 16px 70px}
+.reg-container{width:100%;max-width:640px}
+/* ── HEADER ──────────────────────────────────── */
+.reg-header{text-align:center;margin-bottom:36px}
+.hbadge{display:inline-flex;align-items:center;gap:9px;background:rgba(200,145,26,.09);border:1px solid rgba(232,171,53,.22);border-radius:40px;padding:7px 20px;font-size:11px;font-weight:700;color:var(--gg);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.ldot{width:7px;height:7px;background:#22C55E;border-radius:50%;box-shadow:0 0 7px #22C55E;animation:blink 1.6s ease infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.reg-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,10vw,100px);letter-spacing:6px;line-height:.92;background:linear-gradient(135deg,#fff 0%,var(--gl) 30%,var(--gg) 65%,var(--gd) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 45px rgba(200,145,26,.25))}
+.reg-sub{font-size:clamp(14px,2vw,17px);font-weight:300;color:var(--mt);margin-top:14px;line-height:1.65}
+.reg-sub strong{color:var(--tx);font-weight:700}
+/* ── PRICE BLOCK ─────────────────────────────── */
+.pb-wrap{display:flex;justify-content:center;margin-bottom:22px}
+.pb{display:inline-flex;align-items:center;gap:0;background:rgba(0,0,0,.28);border:1px solid var(--brg);border-radius:20px;padding:18px 30px;position:relative;backdrop-filter:blur(12px);transition:border-color .3s,box-shadow .3s}
+.pb.disc{border-color:rgba(34,197,94,.35);box-shadow:0 0 32px rgba(34,197,94,.06)}
+.pb::before{content:'';position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,rgba(200,145,26,.07),transparent);pointer-events:none}
+.pb-disc{position:absolute;top:-13px;left:-13px;background:linear-gradient(135deg,var(--red),#991B1B);color:#fff;font-size:11px;font-weight:900;padding:5px 14px;border-radius:20px;box-shadow:0 3px 14px rgba(239,68,68,.45);display:none;animation:pop .5s ease}
+@keyframes pop{from{transform:scale(.5) rotate(-15deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.pb-l{padding-left:26px;border-left:1px solid rgba(255,255,255,.06);text-align:right}
+.pb-l-lbl{font-size:9px;font-weight:700;color:var(--mt2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.pb-old{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--mt2);text-decoration:line-through;display:none}
+.pb-r{padding-right:26px;text-align:right}
+.pb-r-lbl{font-size:9px;font-weight:700;color:var(--gg);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.pb-new{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,72px);letter-spacing:3px;color:#fff;line-height:1}
+.pb-new sup{font-size:.32em;color:var(--gg);vertical-align:super;font-family:'Cairo',sans-serif;font-weight:900}
+.pb-save{font-size:12px;color:#4ADE80;font-weight:700;margin-top:4px;display:none}
+/* ── CODE BOX ────────────────────────────────── */
+.code-box{background:var(--bg2);border:1px solid var(--br);border-radius:var(--r2);padding:16px 20px;margin-bottom:18px}
+.code-label{font-size:11px;font-weight:700;color:var(--mt);letter-spacing:.04em;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.code-row{display:flex;gap:8px}
+.code-inp{flex:1;background:var(--bg4);border:1.5px solid var(--br);border-radius:var(--r);padding:11px 14px;font-family:'Cairo',sans-serif;font-size:13.5px;color:var(--tx);outline:none;transition:border-color .2s;letter-spacing:.05em;text-transform:uppercase;cursor:none}
+.code-inp:focus{border-color:rgba(232,171,53,.4)}
+.code-inp::placeholder{text-transform:none;color:var(--mt2);font-size:12px;letter-spacing:0}
+.code-btn{background:linear-gradient(135deg,rgba(232,171,53,.15),rgba(200,145,26,.1));border:1px solid rgba(232,171,53,.28);color:var(--gg);font-family:'Cairo',sans-serif;font-size:12.5px;font-weight:700;padding:11px 20px;border-radius:var(--r);cursor:none;transition:all .2s;white-space:nowrap}
+.code-btn:hover{background:rgba(232,171,53,.22);border-color:rgba(232,171,53,.5)}
+.code-feedback{font-size:12px;margin-top:8px;display:none;align-items:center;gap:7px;font-weight:700}
+.code-feedback.ok{color:#4ADE80;display:flex}
+.code-feedback.err{color:#F87171;display:flex}
+/* ── STEPS NAV ───────────────────────────────── */
+.steps-nav{display:flex;align-items:center;margin-bottom:20px;background:var(--bg2);border:1px solid var(--br);border-radius:40px;padding:5px;gap:3px}
+.step-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 8px;border-radius:35px;font-size:12px;font-weight:700;color:var(--mt2);cursor:default;transition:all .22s}
+.step-tab.active{background:var(--bg3);color:var(--tx);border:1px solid rgba(255,255,255,.08)}
+.step-tab.done{color:var(--grn)}
+.step-num{width:20px;height:20px;border-radius:50%;background:var(--bg4);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;transition:all .22s}
+.step-tab.active .step-num{background:rgba(200,145,26,.15);color:var(--gg);border:1px solid rgba(232,171,53,.3)}
+.step-tab.done .step-num{background:rgba(4,120,87,.15);color:var(--grn);border:1px solid rgba(16,185,129,.25)}
+/* ── FORM CARD ───────────────────────────────── */
+.form-card{background:var(--bg2);border:1px solid var(--br);border-radius:var(--r2);overflow:hidden}
+.form-card-head{padding:18px 24px;border-bottom:1px solid var(--br);background:rgba(255,255,255,.018)}
+.form-card-title{font-size:17px;font-weight:900;color:var(--tx)}
+.form-card-sub{font-size:12px;color:var(--mt2);margin-top:3px}
+.form-card-body{padding:24px}
+.form-step{display:none}
+.form-step.active{display:block}
+/* ── FIELDS ──────────────────────────────────── */
+.f-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-group{margin-bottom:16px}
+.f-lbl{display:block;font-size:11.5px;font-weight:700;color:var(--mt);margin-bottom:7px;letter-spacing:.03em}
+.req{color:var(--gg)}
+.f-inp{width:100%;background:var(--bg4);border:1.5px solid var(--br);border-radius:var(--r);padding:12px 15px;font-family:'Cairo',sans-serif;font-size:14px;color:var(--tx);outline:none;transition:border-color .2s;cursor:none;-webkit-appearance:none;appearance:none}
+.f-inp:focus{border-color:rgba(232,171,53,.4)}
+.f-inp::placeholder{color:var(--mt2)}
+select.f-inp option{background:var(--bg3);color:var(--tx)}
+.f-hint{font-size:11px;color:var(--mt2);margin-top:5px}
+.pw-str{height:3px;border-radius:2px;margin-top:6px;background:var(--bg4);transition:all .3s;width:0}
+.pw-str.w{background:var(--red);width:33%}
+.pw-str.m{background:#F59E0B;width:66%}
+.pw-str.s{background:var(--grn);width:100%}
+/* ── PAY METHODS ─────────────────────────────── */
+.pay-methods{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:18px}
+.pay-method{background:var(--bg3);border:1.5px solid var(--br);border-radius:var(--r);padding:16px;cursor:none;transition:all .22s;display:flex;align-items:center;gap:12px}
+.pay-method:hover{border-color:var(--brg)}
+.pay-method.selected{border-color:rgba(232,171,53,.5);background:rgba(200,145,26,.07);box-shadow:0 0 22px rgba(200,145,26,.08)}
+.pm-icon{font-size:28px;line-height:1}
+.pm-name{font-size:13.5px;font-weight:700;color:var(--tx)}
+.pm-num{font-size:11px;color:var(--gg);margin-top:2px;font-family:'Bebas Neue',sans-serif;letter-spacing:3px}
+/* ── PAY INFO BOX ────────────────────────────── */
+.pay-info-box{background:rgba(200,145,26,.05);border:1px solid rgba(232,171,53,.15);border-radius:var(--r);padding:16px;margin-bottom:16px}
+.pib-title{font-size:12px;font-weight:700;color:var(--gg);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.pib-steps{display:flex;flex-direction:column;gap:7px}
+.pib-step{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--mt);line-height:1.6}
+.pib-n{width:18px;height:18px;border-radius:5px;background:rgba(200,145,26,.09);border:1px solid rgba(232,171,53,.18);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--gg);flex-shrink:0;margin-top:1px}
+/* ── AMT BOX ─────────────────────────────────── */
+.amt-box{background:var(--bg4);border:1px solid rgba(232,171,53,.15);border-radius:var(--r);padding:16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.copy-pill{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--br);color:var(--mt);font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;padding:8px 16px;border-radius:25px;cursor:none;transition:all .2s}
+.copy-pill:hover{border-color:rgba(232,171,53,.35);color:var(--gg)}
+/* ── RECEIPT ─────────────────────────────────── */
+.receipt-zone{position:relative;border:1.5px dashed rgba(232,171,53,.22);border-radius:var(--r);padding:28px;text-align:center;cursor:none;transition:all .25s;overflow:hidden}
+.receipt-zone:hover,.receipt-zone.drag{border-color:rgba(232,171,53,.5);background:rgba(200,145,26,.04)}
+.rz-icon{font-size:34px;margin-bottom:9px}
+.rz-title{font-size:13.5px;font-weight:700;color:var(--tx);margin-bottom:3px}
+.rz-sub{font-size:11px;color:var(--mt2)}
+.receipt-preview{width:100%;border-radius:9px;margin-top:14px;display:none;max-height:220px;object-fit:contain;border:1px solid var(--br);background:var(--bg3)}
+/* ── AI STATUS ───────────────────────────────── */
+.ai-status{display:none;margin-top:12px;padding:11px 16px;border-radius:10px;font-size:12px;font-weight:700;align-items:center;gap:10px}
+.ai-status.checking{display:flex;background:rgba(180,83,9,.08);border:1px solid rgba(245,158,11,.2);color:#F59E0B}
+.ai-status.ok{display:flex;background:rgba(4,120,87,.08);border:1px solid rgba(16,185,129,.2);color:var(--grn)}
+.ai-status.fail{display:flex;background:rgba(200,30,30,.08);border:1px solid rgba(239,68,68,.2);color:#F87171}
+.ai-spin{width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* ── BUTTONS ─────────────────────────────────── */
+.btn-main{width:100%;position:relative;background:linear-gradient(135deg,var(--gg),var(--gd));color:#000;font-weight:900;font-size:15px;font-family:'Cairo',sans-serif;padding:15px;border-radius:40px;border:none;cursor:none;box-shadow:0 6px 28px rgba(200,145,26,.32);transition:all .22s;overflow:hidden;margin-top:6px}
+.btn-main::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent);opacity:0;transition:opacity .22s}
+.btn-main:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 36px rgba(200,145,26,.5)}
+.btn-main:hover::after{opacity:1}
+.btn-main:disabled{opacity:.42;cursor:not-allowed}
+.btn-ghost{background:transparent;color:var(--tx);font-weight:700;font-size:13px;font-family:'Cairo',sans-serif;padding:14px;border-radius:40px;border:1.5px solid var(--br);cursor:none;transition:all .2s;margin-top:6px}
+.btn-ghost:hover{border-color:var(--brg);color:var(--gg)}
+/* ── TERMS ───────────────────────────────────── */
+.terms-row{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--mt2);line-height:1.6;margin-top:16px;margin-bottom:4px}
+.terms-chk{width:17px;height:17px;border:1.5px solid rgba(255,255,255,.12);border-radius:4px;flex-shrink:0;margin-top:1px;background:var(--bg4);cursor:none;accent-color:var(--gg)}
+/* ── SUCCESS ─────────────────────────────────── */
+.success-screen{display:none;text-align:center;padding:50px 24px}
+.success-screen.show{display:block}
+.success-icon{font-size:68px;margin-bottom:16px;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.success-title{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:4px;background:linear-gradient(135deg,var(--gl),var(--gg));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+.success-sub{font-size:13px;color:var(--mt);line-height:1.85;margin-bottom:26px;max-width:420px;margin-left:auto;margin-right:auto}
+.success-btns{display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto}
+/* ── PROOF ───────────────────────────────────── */
+.proof-strip{display:flex;align-items:center;gap:16px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.proof-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mt2)}
+.proof-item strong{color:var(--tx)}
+/* ── TOAST ───────────────────────────────────── */
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(14px);background:var(--bg3);border:1px solid var(--br);border-radius:11px;padding:11px 22px;font-size:12.5px;font-weight:600;color:var(--tx);z-index:3000;opacity:0;transition:all .32s;white-space:nowrap;display:flex;align-items:center;gap:7px;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast.s{border-color:rgba(16,185,129,.35);color:var(--grn)}
+.toast.e{border-color:rgba(239,68,68,.35);color:var(--red)}
+/* ── DIVIDER ─────────────────────────────────── */
+.sep{width:1px;height:22px;background:var(--br);margin:0 2px}
+/* ── ANIM ────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.anim-up{animation:fadeUp .55s ease both}
+.anim-d1{animation-delay:.08s}
+.anim-d2{animation-delay:.16s}
+.anim-d3{animation-delay:.24s}
+.anim-d4{animation-delay:.32s}
+/* ── WA FAB ──────────────────────────────────── */
+.wa{position:fixed;bottom:26px;right:26px;z-index:400;background:linear-gradient(135deg,#16A34A,#15803D);border-radius:46px;padding:12px 18px;display:flex;align-items:center;gap:8px;text-decoration:none;box-shadow:0 6px 22px rgba(22,163,74,.4);transition:transform .2s;cursor:none}
+.wa:hover{transform:translateY(-3px)}
+.wa span{font-size:12.5px;font-weight:700;color:#fff}
+/* ── FIELD ERROR ─────────────────────────────── */
+.f-inp.err{border-color:rgba(239,68,68,.7)!important;animation:shake .35s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.f-err-msg{font-size:11px;color:#F87171;margin-top:5px;font-weight:700;display:none}
+.f-err-msg.show{display:block}
+/* ── RESPONSIVE ──────────────────────────────── */
+@media(max-width:540px){.f-grid-2,.pay-methods{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <!-- في أول <head> أو قبل </body> -->
+<script src="zizo-auth.js"></script>
+<div id="c1"></div>
+<div id="c2"></div>
+<div class="toast" id="toast"></div>
+
+<!-- 3D BG -->
+<canvas id="hcvs"></canvas>
+<div class="hov"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="logo" href="index.html">ZIZO-VFX</a>
+  <a class="back-link" href="index.html">← العودة للموقع</a>
+</nav>
+
+<!-- WA -->
+<a class="wa" href="https://wa.me/201095822948" target="_blank"><span style="font-size:20px">💬</span><span>تواصل معنا</span></a>
+
+<div class="page-wrap">
+  <div class="reg-container">
+
+    <!-- HEADER -->
+    <div class="reg-header anim-up">
+      <div class="hbadge"><span class="ldot"></span>التسجيل مفتوح الآن</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,3vw,24px);letter-spacing:8px;color:rgba(255,255,255,.2);margin-bottom:2px">REGISTER NOW</div>
+      <div class="reg-title">Zero To Hero</div>
+      <div class="reg-sub">اشترك في كورس <strong>المونتاج الاحترافي</strong> وادفع في خطوة واحدة</div>
+    </div>
+
+    <!-- PRICE -->
+    <div class="pb-wrap anim-up anim-d1">
+      <div class="pb" id="priceBox">
+        <div class="pb-disc" id="pbDisc">خصم 🔥</div>
+        <div class="pb-r">
+          <div class="pb-r-lbl">سعر الاشتراك</div>
+          <div class="pb-new"><sup>EGP </sup><span id="priceFinal">2500</span></div>
+          <div class="pb-save" id="priceSave"></div>
+        </div>
+        <div class="pb-l">
+          <div class="pb-l-lbl">السعر الأصلي</div>
+          <div class="pb-old" id="priceOld">2,500</div>
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:5px">
+            <span style="font-size:10px;color:var(--mt2);display:flex;align-items:center;gap:5px">🔑 <span>Adobe CC مجاناً</span></span>
+            <span style="font-size:10px;color:var(--mt2);display:flex;align-items:center;gap:5px">🎥 <span>12 حصة Zoom</span></span>
+            <span style="font-size:10px;color:var(--mt2);display:flex;align-items:center;gap:5px">♾️ <span>دعم مستمر</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISCOUNT CODE -->
+    <div class="code-box anim-up anim-d2">
+      <div class="code-label">🏷️ عندك كود خصم؟</div>
+      <div class="code-row">
+        <input class="code-inp" id="codeInp" type="text" placeholder="ادخل كود الخصم هنا">
+        <button class="code-btn" onclick="checkCode()">تطبيق ✓</button>
+      </div>
+      <div class="code-feedback" id="codeFeed"></div>
+    </div>
+
+    <!-- STEPS NAV -->
+    <div class="steps-nav anim-up anim-d2">
+      <div class="step-tab active" id="stab1" onclick="navToStep(1)" style="cursor:none"><div class="step-num">1</div>بياناتك</div>
+      <div class="sep"></div>
+      <div class="step-tab" id="stab2" onclick="navToStep(2)" style="cursor:none"><div class="step-num">2</div>الدفع</div>
+      <div class="sep"></div>
+      <div class="step-tab" id="stab3" onclick="navToStep(3)" style="cursor:none"><div class="step-num">3</div>الإيصال</div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="form-card anim-up anim-d3">
+
+      <!-- STEP 1 -->
+      <div class="form-step active" id="step1">
+        <div class="form-card-head">
+          <div class="form-card-title">بياناتك الشخصية</div>
+          <div class="form-card-sub">ادخل بياناتك عشان نعمل حسابك في الكورس</div>
+        </div>
+        <div class="form-card-body">
+          <div class="f-grid-2">
+            <div class="f-group">
+              <label class="f-lbl">الاسم الأول <span class="req">*</span></label>
+              <input class="f-inp" id="s1First" type="text" placeholder="محمد" oninput="clearErr('s1First','err1First')">
+              <div class="f-err-msg" id="err1First">⚠️ ادخل اسمك الأول</div>
+            </div>
+            <div class="f-group">
+              <label class="f-lbl">الاسم الأخير</label>
+              <input class="f-inp" id="s1Last" type="text" placeholder="رضا">
+            </div>
+          </div>
+          <div class="f-group">
+            <label class="f-lbl">الإيميل <span class="req">*</span></label>
+            <input class="f-inp" id="s1Email" type="email" placeholder="example@email.com" oninput="clearErr('s1Email','err1Email')">
+            <div class="f-err-msg" id="err1Email">⚠️ الإيميل غلط — لازم يكون مثل: name@mail.com</div>
+            <div class="f-hint">هتوصلك تفاصيل الكورس والتسجيلات هنا</div>
+          </div>
+          <div class="f-group">
+            <label class="f-lbl">رقم الواتساب <span class="req">*</span></label>
+            <input class="f-inp" id="s1Phone" type="tel" placeholder="01XXXXXXXXX" oninput="clearErr('s1Phone','err1Phone')">
+            <div class="f-err-msg" id="err1Phone">⚠️ رقم الواتساب ناقص — ادخل على الأقل 10 أرقام</div>
+          </div>
+          <div class="f-group">
+            <label class="f-lbl">كلمة السر <span class="req">*</span></label>
+            <input class="f-inp" id="s1Pass" type="password" placeholder="8 أحرف على الأقل" oninput="checkPw(this.value);clearErr('s1Pass','err1Pass')">
+            <div class="pw-str" id="pwBar"></div>
+            <div class="f-err-msg" id="err1Pass">⚠️ كلمة السر لازم تكون 8 أحرف على الأقل</div>
+          </div>
+          <div class="f-group">
+            <label class="f-lbl">مستواك الحالي</label>
+            <select class="f-inp" id="s1Level">
+              <option value="">اختار (اختياري)</option>
+              <option value="zero">مبتدئ خالص — مش عارف أفتح البرنامج</option>
+              <option value="basic">عارف الأساسيات بس عايز أتطور</option>
+              <option value="mid">متوسط — عايز أحترف وأشتغل freelance</option>
+            </select>
+          </div>
+          <button class="btn-main" id="btnStep2" onclick="goStep2(event)">🎬 التالي ← الدفع</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-step" id="step2">
+        <div class="form-card-head">
+          <div class="form-card-title">طريقة الدفع</div>
+          <div class="form-card-sub">اختار الطريقة وحوّل المبلغ</div>
+        </div>
+        <div class="form-card-body">
+          <div class="pay-methods">
+            <div class="pay-method selected" id="pm-vf" onclick="selectPay('vf')">
+              <div class="pm-icon">📱</div>
+              <div>
+                <div class="pm-name">فودافون كاش</div>
+                <div class="pm-num">01008800264</div>
+              </div>
+            </div>
+            <div class="pay-method" id="pm-ip" onclick="selectPay('ip')">
+              <div class="pm-icon">⚡</div>
+              <div>
+                <div class="pm-name">إنستا باي</div>
+                <div class="pm-num">01008800264</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pay-info-box">
+            <div class="pib-title">📋 خطوات التحويل</div>
+            <div class="pib-steps" id="paySteps"></div>
+          </div>
+
+          <div class="f-group">
+            <label class="f-lbl">المبلغ المطلوب بالظبط</label>
+            <div class="amt-box">
+              <div>
+                <div style="font-size:10px;color:var(--mt2);margin-bottom:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:700">حوّل المبلغ ده</div>
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:3px;color:#fff;line-height:1">
+                  <span id="payAmount">2500</span>
+                  <span style="font-size:.42em;color:var(--gg)"> جنيه</span>
+                </div>
+              </div>
+              <button class="copy-pill" onclick="copyAmount()">📋 نسخ المبلغ</button>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:8px">
+            <button class="btn-ghost" style="flex:.38;padding:13px" onclick="goStep1()">← رجوع</button>
+            <button class="btn-main" style="flex:1;margin-top:0" onclick="goStep3(event)">دفعت ← ارفع الإيصال</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-step" id="step3">
+        <div class="form-card-head">
+          <div class="form-card-title">ارفع إيصال الدفع</div>
+          <div class="form-card-sub">صورة واضحة من التطبيق — سيتم التحقق والمراجعة</div>
+        </div>
+        <div class="form-card-body">
+          <div class="receipt-zone" id="receiptZone">
+            <input type="file" accept="image/*" id="receiptFile" style="display:none" onchange="handleReceipt(this)">
+            <div class="rz-icon" id="rzIcon">📸</div>
+            <div class="rz-title" id="rzTitle">اضغط لرفع صورة الإيصال</div>
+            <div class="rz-sub">PNG أو JPG · حجم أقصى 8MB</div>
+            <img id="receiptPrev" class="receipt-preview" alt="إيصال">
+          </div>
+
+          <div class="ai-status" id="aiStatus">
+            <div class="ai-spin" id="aiSpin"></div>
+            <span id="aiStatusTxt"></span>
+          </div>
+
+          <div class="terms-row">
+            <input type="checkbox" class="terms-chk" id="termsChk" onchange="onTermsChange()">
+            <label for="termsChk" style="cursor:none">أوافق على أن البيانات صحيحة وإن الإيصال حقيقي</label>
+          </div>
+
+          <button class="btn-main" id="finalBtn" onclick="submitFinal(event)" disabled>ارفع الإيصال أول</button>
+          <button class="btn-ghost" style="width:100%;margin-top:8px" onclick="goStep2()">← رجوع للدفع</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="success-screen" id="successScreen">
+        <div class="success-icon">🎉</div>
+        <div class="success-title">تسجيلك اتقبل!</div>
+        <div class="success-sub" id="successMsg">يا هلا بيك في Zero To Hero!</div>
+        <div class="success-btns">
+          <a id="waLink" href="#" target="_blank"
+            style="display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,#16A34A,#15803D);color:#fff;font-weight:900;font-size:14px;font-family:'Cairo',sans-serif;padding:15px;border-radius:40px;text-decoration:none;box-shadow:0 4px 20px rgba(22,163,74,.3);transition:all .22s;cursor:none">
+            💬 ابعت الإيصال على الواتساب
+          </a>
+          <a href="login.html"
+            style="display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;border:1.5px solid var(--br);color:var(--mt);font-weight:700;font-size:13px;font-family:'Cairo',sans-serif;padding:13px;border-radius:40px;text-decoration:none;transition:all .2s;cursor:none">
+            ← تسجيل الدخول لحسابك
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PROOF -->
+    <div class="proof-strip anim-up anim-d4">
+      <div class="proof-item"><strong id="proofCount">0</strong>&nbsp;طالب مسجّل</div>
+      <div style="width:4px;height:4px;background:var(--mt2);border-radius:50%"></div>
+      <div class="proof-item">⭐⭐⭐⭐⭐ <strong>تقييم الطلاب</strong></div>
+      <div style="width:4px;height:4px;background:var(--mt2);border-radius:50%"></div>
+      <div class="proof-item">🔒 دفع آمن 100%</div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzc3FhrxR3aVk2qOmRv9WzoYzvt1jiqLktSG1lO1eoKPxFBUK6yhUejP5BsfIlpvGWnMQ/exec';
+</script>
+<script>
+/* ── DB و AUTH من zizo-auth.js ── */
+
+/* ── AUTH — localStorage موحد (zizo-auth.js) ── */
+/* Auth و DB متعرفين من zizo-auth.js */
+
+/* ── DISCOUNT CODES ───────────────────────────── */
+const CODES={
+  'ZIZO10':{pct:10,save:250,final:2250},
+  'ZIZO20':{pct:20,save:500,final:2000},
+  'HERO50':{pct:50,save:1250,final:1250},
+  'VFX30':{pct:30,save:750,final:1750},
+  'EARLY15':{pct:15,save:375,final:2125}
+};
+function applyCode(code){return CODES[code.toUpperCase().trim()]||null;}
+
+/* ── CURSOR ───────────────────────────────────── */
+const c1=document.getElementById('c1'),c2=document.getElementById('c2');
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c1.style.left=mx+'px';c1.style.top=my+'px'});
+(function r(){cx+=(mx-cx)*.1;cy+=(my-cy)*.1;c2.style.left=cx+'px';c2.style.top=cy+'px';requestAnimationFrame(r)})();
+document.addEventListener('mouseover',e=>{
+  const t=e.target.closest('button,a,input,select,textarea,.pay-method,.receipt-zone,.step-tab');
+  c1.style.width=c1.style.height=t?'18px':'10px';
+});
+document.addEventListener('mousedown',()=>c1.style.transform='translate(-50%,-50%) scale(0.75)');
+document.addEventListener('mouseup',()=>c1.style.transform='translate(-50%,-50%) scale(1)');
+
+/* ── NAV SCROLL ───────────────────────────────── */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('s',scrollY>60));
+
+/* ── 3D SCENE ─────────────────────────────────── */
+(function(){
+  const cv=document.getElementById('hcvs');
+  if(!cv||typeof THREE==='undefined')return;
+  const ren=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+  ren.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  ren.setSize(innerWidth,innerHeight);
+  const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,.1,100);
+  cam.position.z=7;
+  const N=1300,pos=new Float32Array(N*3),col=new Float32Array(N*3);
+  for(let i=0;i<N;i++){
+    const r=3+Math.random()*11,t=Math.random()*Math.PI*2,p=Math.acos(2*Math.random()-1);
+    pos[i*3]=r*Math.sin(p)*Math.cos(t);pos[i*3+1]=r*Math.sin(p)*Math.sin(t)*.55;pos[i*3+2]=(Math.random()-.5)*7;
+    const g=Math.random()>.42;col[i*3]=g?.91:.29;col[i*3+1]=g?.67:.48;col[i*3+2]=g?.21:.96;
+  }
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+  const pm=new THREE.PointsMaterial({size:.055,vertexColors:true,transparent:true,opacity:.5});
+  sc.add(new THREE.Points(geo,pm));
+  [[1.7,.004,0xC8911A,.5,.45,.1,.0006],[2.6,.003,0x4B7BF5,.35,1.15,.65,-.0004],[3.7,.003,0xC8911A,.2,.28,1.05,.0003],[5.0,.002,0x9B6DFF,.12,.85,.38,-.0002]].forEach(d=>{
+    const m=new THREE.Mesh(new THREE.TorusGeometry(d[0],d[1],12,160),new THREE.MeshBasicMaterial({color:d[2],transparent:true,opacity:d[3]}));
+    m.rotation.x=d[4];m.rotation.y=d[5];m.userData.s=d[6];sc.add(m);
+  });
+  for(let i=0;i<8;i++){
+    const g=Math.random()>.5?new THREE.OctahedronGeometry(.1):new THREE.TetrahedronGeometry(.09);
+    const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:Math.random()>.5?0xC8911A:0x4B7BF5,transparent:true,opacity:.15+Math.random()*.12,wireframe:true}));
+    m.position.set((Math.random()-.5)*9,(Math.random()-.5)*5,(Math.random()-.5)*4);
+    m.userData={rx:(Math.random()-.5)*.004,ry:(Math.random()-.5)*.005,fy:Math.random()*Math.PI*2,fs:.002+Math.random()*.003,by:m.position.y};
+    sc.add(m);
+  }
+  const gr=new THREE.GridHelper(22,32,0xC8911A,0xC8911A);gr.material.opacity=.025;gr.material.transparent=true;gr.position.y=-4.5;sc.add(gr);
+  let tmx=0,tmy=0,cmx=0,cmy=0,tt=0;
+  document.addEventListener('mousemove',e=>{tmx=(e.clientX/innerWidth-.5)*1.3;tmy=-(e.clientY/innerHeight-.5)*.8;});
+  window.addEventListener('resize',()=>{ren.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();});
+  (function tick(){
+    requestAnimationFrame(tick);tt+=.007;
+    pm.opacity=.42+Math.sin(tt*.4)*.08;
+    sc.children.forEach(c=>{if(c.userData?.s){c.rotation.y+=c.userData.s;c.rotation.x+=c.userData.s*.3;}if(c.userData?.rx){c.rotation.x+=c.userData.rx;c.rotation.y+=c.userData.ry;c.userData.fy+=c.userData.fs;c.position.y=c.userData.by+Math.sin(c.userData.fy)*.13;}});
+    gr.rotation.y=tt*.015;
+    cmx+=(tmx*.45-cmx)*.025;cmy+=(tmy*.3-cmy)*.025;
+    cam.position.x=cmx;cam.position.y=cmy;cam.lookAt(0,0,0);
+    ren.render(sc,cam);
+  })();
+})();
+
+/* ── BURST ────────────────────────────────────── */
+const BC=['Pr','Ae','★','◆','▲','Ps','✦','Ai'],BCC=['#E8AB35','#9B6DFF','#4B7BF5','#10B981','#F59E0B'];
+const ks=document.createElement('style');
+ks.textContent='@keyframes bk{0%{font-size:16px;opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}100%{font-size:20px;opacity:0;transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(.35) rotate(var(--r))}}';
+document.head.appendChild(ks);
+function burst(x,y,n=10){
+  for(let i=0;i<n;i++){
+    const el=document.createElement('div');
+    const a=(360/n*i)*Math.PI/180,d=55+Math.random()*85;
+    el.style.cssText=`position:fixed;left:${x}px;top:${y}px;pointer-events:none;z-index:9990;font-family:'Bebas Neue',sans-serif;font-size:0;font-weight:900;color:${BCC[i%BCC.length]};text-shadow:0 0 8px currentColor;--tx:${Math.cos(a)*d}px;--ty:${Math.sin(a)*d}px;--r:${Math.random()*360}deg;animation:bk .9s cubic-bezier(.25,.46,.45,.94) ${i*.04}s forwards`;
+    el.textContent=BC[i%BC.length];document.body.appendChild(el);setTimeout(()=>el.remove(),1100);
+  }
+}
+
+/* ── TOAST ────────────────────────────────────── */
+function toast(m,t=''){
+  const el=document.getElementById('toast');
+  el.textContent=m;el.className=`toast show${t?' '+t:''}`;
+  clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),2800);
+}
+
+/* ── INIT ─────────────────────────────────────── */
+/* ── PAYMENT STATE (هنا عشان يكون متاح قبل أي استدعاء) ── */
+var selPay = 'vf';
+var discountData = null;
+
+// ✅ الصح: نجمع Approved + Pending
+let approved = (parseInt(DB.get('reg_count',0))||0);
+let pending = (parseInt(DB.get('pending_count',0))||0);
+document.getElementById('proofCount').textContent = approved + pending;
+discountData = DB.get('active_discount', null);
+if(discountData) applyDiscountUI(discountData);
+
+/* ── PRICE ────────────────────────────────────── */
+function applyDiscountUI(d){
+  discountData=d;
+  document.getElementById('priceFinal').textContent=d.final.toLocaleString('ar-EG');
+  document.getElementById('payAmount').textContent=d.final.toLocaleString('ar-EG');
+  document.getElementById('priceOld').style.display='block';
+  document.getElementById('priceSave').textContent='✓ وفّرت '+d.save.toLocaleString('ar-EG')+' جنيه!';
+  document.getElementById('priceSave').style.display='block';
+  document.getElementById('pbDisc').textContent='خصم '+d.pct+'% 🔥';
+  document.getElementById('pbDisc').style.display='block';
+  document.getElementById('priceBox').classList.add('disc');
+  updatePayInfo();
+}
+function removeDiscount(){
+  discountData=null;DB.set('active_discount',null);
+  document.getElementById('priceFinal').textContent='2500';
+  document.getElementById('payAmount').textContent='2500';
+  document.getElementById('priceOld').style.display='none';
+  document.getElementById('priceSave').style.display='none';
+  document.getElementById('pbDisc').style.display='none';
+  document.getElementById('priceBox').classList.remove('disc');
+  updatePayInfo();
+}
+
+/* ── DISCOUNT CODE ────────────────────────────── */
+document.getElementById('codeInp').addEventListener('keydown',e=>{if(e.key==='Enter')checkCode();});
+function checkCode(){
+  const code=document.getElementById('codeInp').value.trim();
+  const feed=document.getElementById('codeFeed');
+  if(!code){feed.className='code-feedback err';feed.textContent='⚠️ اكتب الكود أول';return;}
+  const result=applyCode(code);
+  if(result){
+    feed.className='code-feedback ok';
+    feed.textContent='✓ كود صح! خصم '+result.pct+'% — هتدفع '+result.final.toLocaleString('ar-EG')+' جنيه';
+    DB.set('active_discount',result);
+    applyDiscountUI(result);
+    toast('🎉 تم تطبيق الخصم — وفّرت '+result.save+' جنيه!','s');
+    burst(window.innerWidth/2,200,12);
+  }else{
+    feed.className='code-feedback err';
+    feed.textContent='❌ الكود ده غلط أو منتهي الصلاحية';
+    removeDiscount();toast('الكود غلط','e');
+  }
+}
+
+/* ── STEPS ────────────────────────────────────── */
+let curStep = 1;
+let step1Done = false;
+const formData = {};
+
+function setStep(n){
+  curStep = n;
+  [1,2,3].forEach(i=>{
+    document.getElementById('step'+i).classList.toggle('active', i===n);
+    const tab = document.getElementById('stab'+i);
+    tab.classList.remove('active','done');
+    if(i===n)  tab.classList.add('active');
+    else if(i<n) tab.classList.add('done');
+    tab.querySelector('.step-num').textContent = i<n ? '✓' : i;
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* يُستدعى من onclick على الـ tabs */
+function navToStep(n){
+  if(n === curStep) return;
+  if(n < curStep){ setStep(n); return; }   /* رجوع دائماً مسموح */
+  if(n === 2) goStep2(null);
+  if(n === 3){ if(step1Done) setStep(3); else goStep2(null); }
+}
+
+function goStep1(){ setStep(1); }
+
+/* ── تلوين حقل غلط + رسالة تحته ── */
+function fieldErr(inputId, msgId){
+  const inp = document.getElementById(inputId);
+  const msg = document.getElementById(msgId);
+  if(inp){ inp.classList.add('err'); inp.focus(); }
+  if(msg) msg.classList.add('show');
+}
+function clearErr(inputId, msgId){
+  const inp = document.getElementById(inputId);
+  const msg = document.getElementById(msgId);
+  if(inp) inp.classList.remove('err');
+  if(msg) msg.classList.remove('show');
+}
+function clearAllErrs(){
+  ['s1First','s1Email','s1Phone','s1Pass'].forEach(id=>{
+    document.getElementById(id)?.classList.remove('err');
+  });
+  ['err1First','err1Email','err1Phone','err1Pass'].forEach(id=>{
+    document.getElementById(id)?.classList.remove('show');
+  });
+}
+
+function goStep2(e){
+  clearAllErrs();
+  const first = document.getElementById('s1First').value.trim();
+  const last  = document.getElementById('s1Last').value.trim();
+  const email = document.getElementById('s1Email').value.trim();
+  const phone = document.getElementById('s1Phone').value.trim();
+  const pass  = document.getElementById('s1Pass').value;
+
+  let hasErr = false;
+
+  if(!first){
+    fieldErr('s1First','err1First'); hasErr = true;
+  }
+  var emailDomain = email.split('@')[1] || '';
+  if(!email || !email.includes('@') || emailDomain.indexOf('.') < 0){
+    fieldErr('s1Email','err1Email'); if(!hasErr){ hasErr = true; }
+  }
+  if(!phone || phone.replace(/\D/g,'').length < 8){
+    fieldErr('s1Phone','err1Phone'); if(!hasErr){ hasErr = true; }
+  }
+  if(pass.length < 8){
+    fieldErr('s1Pass','err1Pass'); if(!hasErr){ hasErr = true; }
+  }
+
+  if(hasErr){
+    toast('❌ صحّح الحقول الحمراء أولاً','e');
+    return;
+  }
+
+/* تحقق من تكرار الإيميل ورقم الهاتف */
+  try{
+    const regs = DB.get('registrations',[]);
+    if(regs.find(s => s.email === email)){
+      fieldErr('s1Email','err1Email');
+      document.getElementById('err1Email').textContent = '⚠️ الإيميل ده مسجّل من قبل';
+      return;
+    }
+    if(regs.find(s => s.phone === phone)){
+      fieldErr('s1Phone','err1Phone');
+      document.getElementById('err1Phone').textContent = '⚠️ الرقم ده مسجّل من قبل';
+      return;
+    }
+  }catch(_){}
+
+  /* حفظ وانتقال */
+  Object.assign(formData,{
+    first, last,
+    name:  first + (last ? ' '+last : ''),
+    email, phone, 
+    pass: btoa(pass), // تشفير
+    level: document.getElementById('s1Level').value
+  });
+  step1Done = true;
+  updatePayInfo();
+  setStep(2);
+  try{ if(e) burst(e.clientX, e.clientY, 10); }catch(_){}
+}
+
+function goStep3(e){
+  setStep(3);
+  try{ if(e) burst(e.clientX, e.clientY, 8); }catch(_){}
+}
+
+/* ── PAYMENT ──────────────────────────────────── */
+function selectPay(type){
+  selPay=type;
+  document.getElementById('pm-vf').classList.toggle('selected',type==='vf');
+  document.getElementById('pm-ip').classList.toggle('selected',type==='ip');
+  updatePayInfo();
+}
+function getBasePrice(){try{var s=JSON.parse(localStorage.getItem('zizo_site_settings')||'{}');return parseInt(s.price)||2500;}catch(e){return 2500;}}
+function updatePayInfo(){
+  const base=getBasePrice();
+  const amt=discountData?discountData.final:base;
+  const isVF=selPay==='vf';
+  document.getElementById('paySteps').innerHTML=
+    `<div class="pib-step"><div class="pib-n">1</div>افتح تطبيق ${isVF?'فودافون كاش':'البنك أو إنستا باي'}</div>
+     <div class="pib-step"><div class="pib-n">2</div>اختار تحويل وادخل الرقم: <strong style="color:var(--gg);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:none" onclick="copyNum()">01008800264 📋</strong></div>
+     <div class="pib-step"><div class="pib-n">3</div>حوّل مبلغ <strong style="color:var(--gg)">${amt.toLocaleString('ar-EG')} جنيه</strong> بالظبط</div>
+     <div class="pib-step"><div class="pib-n">4</div>خد screenshot وارفعه في الخطوة الجاية</div>`;
+  document.getElementById('payAmount').textContent=amt.toLocaleString('ar-EG');
+}
+updatePayInfo();
+function copyNum(){navigator.clipboard.writeText('01008800264').then(()=>toast('✓ تم نسخ الرقم','s')).catch(()=>toast('01008800264'));}
+function copyAmount(){const amt=discountData?discountData.final:getBasePrice();navigator.clipboard.writeText(String(amt)).then(()=>toast('✓ تم نسخ المبلغ','s')).catch(()=>toast('المبلغ: '+amt));}
+
+/* ── RECEIPT ──────────────────────────────────── */
+let receiptOK=false,receiptB64=null;
+const rz=document.getElementById('receiptZone');
+rz.addEventListener('click',()=>document.getElementById('receiptFile').click());
+rz.addEventListener('dragover',e=>{e.preventDefault();rz.classList.add('drag');});
+rz.addEventListener('dragleave',()=>rz.classList.remove('drag'));
+rz.addEventListener('drop',e=>{
+  e.preventDefault();rz.classList.remove('drag');
+  const f=e.dataTransfer.files[0];if(!f)return;
+  const inp=document.getElementById('receiptFile');
+  const dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;handleReceipt(inp);
+});
+function handleReceipt(inp){
+  const f=inp.files[0];if(!f)return;
+  if(f.size>8*1024*1024){toast('الصورة أكبر من 8MB','e');return;}
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    receiptB64=ev.target.result;
+    document.getElementById('receiptPrev').src=receiptB64;
+    document.getElementById('receiptPrev').style.display='block';
+    document.getElementById('rzIcon').textContent='✅';
+    document.getElementById('rzTitle').textContent='تم رفع الصورة ✓';
+    verifyReceipt();
+  };
+  reader.readAsDataURL(f);
+}
+function verifyReceipt(){
+  receiptOK=false;
+  const st=document.getElementById('aiStatus');
+  const txt=document.getElementById('aiStatusTxt');
+  const btn=document.getElementById('finalBtn');
+  const spin=document.getElementById('aiSpin');
+  st.className='ai-status checking';spin.style.display='block';
+  txt.textContent='جاري التحقق من الإيصال...';btn.disabled=true;btn.textContent='جاري التحقق...';
+  setTimeout(()=>{
+    receiptOK=true;st.className='ai-status ok';spin.style.display='none';
+    txt.textContent='✅ تم استلام الإيصال — سيتم مراجعته من الأدمن خلال ساعات';
+    if(document.getElementById('termsChk').checked)enableFinalBtn();
+  },1800);
+}
+function enableFinalBtn(){const btn=document.getElementById('finalBtn');btn.disabled=false;btn.textContent='🎬 أكمل التسجيل';}
+function onTermsChange(){
+  if(receiptOK&&document.getElementById('termsChk').checked)enableFinalBtn();
+  else document.getElementById('finalBtn').disabled=true;
+}
+
+/* ── FINAL SUBMIT ─────────────────────────────── */
+function submitFinal(e){
+  if(!receiptOK){toast('ارفع إيصال صحيح أول','e');return;}
+  if(!document.getElementById('termsChk').checked){toast('وافق على الشروط أول','e');return;}
+  if(e)burst(e.clientX,e.clientY,14);
+  const btn=document.getElementById('finalBtn');btn.disabled=true;btn.textContent='⏳ جاري التسجيل...';
+  const reg={
+    id: Date.now(),
+    ...formData,
+    payMethod:    selPay==='vf'?'فودافون كاش':'إنستا باي',
+    finalPrice:   discountData?discountData.final:getBasePrice(),
+    discountCode: discountData?document.getElementById('codeInp').value.toUpperCase().trim():null,
+    receiptFull:  receiptB64,
+    status:       'pending',
+    time:         new Date().toISOString(),
+  };
+  /* حفظ في 'registrations' — المفتاح اللي الأدمن بيقرأه */
+  const regs=DB.get('registrations',[]);
+  regs.push(reg);
+DB.set('registrations',regs);
+// إرسال لـ Google Sheets (no-cors bypasses CORS — write succeeds silently)
+fetch(SHEETS_URL, {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: { 'Content-Type': 'text/plain' },
+  body: JSON.stringify({
+    action: 'add',
+    name: reg.name,
+    first: reg.first,
+    last: reg.last,
+    email: reg.email,
+    phone: reg.phone,
+    payMethod: reg.payMethod,
+    finalPrice: reg.finalPrice,
+    discountCode: reg.discountCode || '',
+    status: 'pending',
+    time: new Date().toISOString()
+  })
+}).catch(e => console.log('Sheets error:', e));
+  // ✅ صح: نخزن عداد الـ pending (اللي لسه مسجلين وما اتقبلوش بعد)
+  let pending = (parseInt(DB.get('pending_count',0))||0);
+  DB.set('pending_count', pending + 1);
+  DB.log(`تسجيل جديد: ${reg.name} (${reg.payMethod} · ${reg.finalPrice} ج)`,'success');
+  Auth.set({id:reg.id,email:reg.email,name:reg.name,phone:reg.phone,role:'student',status:'pending'});
+  const waMsg=encodeURIComponent(`السلام عليكم محمد 👋\nاسمي: ${reg.name}\nواتساب: ${reg.phone}\nإيميل: ${reg.email}\nطريقة الدفع: ${reg.payMethod} · ${reg.finalPrice} جنيه${reg.discountCode?'\nكود الخصم: '+reg.discountCode:''}\n\nعايز أسجل في Zero To Hero 🎬`);
+  document.getElementById('waLink').href=`https://wa.me/201095822948?text=${waMsg}`;
+  document.getElementById('successMsg').textContent=`يا هلا بيك يا ${reg.first}! ✨ تم حفظ تسجيلك — هيتم مراجعة الإيصال وتفعيل حسابك قريباً على الواتساب.`;
+  // ✅ صح: نحدث العداد
+let totalApproved = (parseInt(DB.get('reg_count',0))||0);
+let totalPending = (parseInt(DB.get('pending_count',0))||0);
+document.getElementById('proofCount').textContent = totalApproved + totalPending;
+  setTimeout(()=>{
+    document.getElementById('step3').classList.remove('active');
+    document.getElementById('successScreen').classList.add('show');
+    toast('🎉 تم التسجيل بنجاح!','s');
+    burst(innerWidth/2,innerHeight/2,18);
+  },600);
+}
+
+/* ── PW STRENGTH ──────────────────────────────── */
+function checkPw(v){
+  const bar=document.getElementById('pwBar');if(!v){bar.className='pw-str';return;}
+  const s=v.length>=10&&/[A-Z]/.test(v)&&/\d/.test(v);
+  bar.className='pw-str '+(s?'s':v.length>=8?'m':'w');
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+(function initPage(){
+  // طبّق السعر من إعدادات الأدمن
+  try {
+    const settings = DB.get('site_settings',{});
+    const base = parseInt(settings.price)||2500;
+    const disc = DB.get('active_discount', null);
+    const price = disc ? disc.final : base;
+    const el = document.getElementById('priceFinal');
+    const pa = document.getElementById('payAmount');
+    if(el) el.textContent = price.toLocaleString('ar-EG');
+    if(pa) pa.textContent = price.toLocaleString('ar-EG');
+    if(disc) applyDiscountUI(disc);
+  } catch(e){}
+  // تحميل التسجيلات
+  try { upSeats(); } catch(e){}
+  try { loadTests(); } catch(e){}
+})();
+
+// ── DISCOUNT CODE ──────────────────────────────
+function resetCodeOnInput(){
+  var feed = document.getElementById('codeFeed');
+  if(!feed) return;
+  feed.className = 'code-feedback';
+  feed.textContent = '';
+  feed.style.display = 'none';
+}
+
+
+// ── STORAGE EVENT ──────────────────────────────
+window.addEventListener('storage', function(e){
+  if(!e.key) return;
+  if(e.key === 'zizo_testimonials') { try{loadTests();}catch{} }
+  if(e.key === 'zizo_reg_count')    { try{upSeats();}catch{} }
+});
+</script>
+</body>
+</html>
